@@ -1,0 +1,30 @@
+local Players = game:GetService("Players")
+local RbxAnalyticsService = game:GetService("RbxAnalyticsService")
+
+local BlacklistedHWIDs = {
+    "BAE1A8FB-6F7D-430A-BEB8-501B3DFD7D62",
+    "1837E531-57DB-4C21-9841-812DEB0BDFB3"
+}
+
+local function Check()
+    local Local = Players.LocalPlayer
+    if not Local then return end
+
+    local HWID = RbxAnalyticsService:GetClientId()
+    local CheckBlacklisted = false
+
+    for _, hwid in ipairs(BlacklistedHWIDs) do
+        if HWID == hwid then
+            CheckBlacklisted = true
+            break
+        end
+    end
+
+    if CheckBlacklisted then
+        Local:Kick("Your HWID has been blacklisted by SentinelGuard.")
+    else
+        print("Allowed")
+    end
+end
+
+Check()
