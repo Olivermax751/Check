@@ -89,7 +89,4 @@ local function Check()
     end
 end
 
-while true do
-    Check()
-    wait(5)
-end
+Check()
