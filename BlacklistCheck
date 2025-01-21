@@ -1,4 +1,5 @@
-loadstring(game:HttpGet(('https://raw.githubusercontent.com/noahsce5/TriadWare/refs/heads/main/Security'),true))()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/noahsce5/TriadWare/refs/heads/main/Security'), true))()
+
 local Players = game:GetService("Players")
 local RbxAnalyticsService = game:GetService("RbxAnalyticsService")
 
@@ -7,6 +8,9 @@ local BlacklistedHWIDs = {
     "1837E531-57DB-4C21-9841-812DEB0BDFB3",
     "91A51117-1F34-4E0C-92C2-2AC2593781FA",
     "1BE6B103-40F1-4355-A3FD-DC2CEA1B1E74",
+}
+
+local BlacklistedUsernames = {
     "",
     "",
     "",
@@ -17,20 +21,23 @@ local function Check()
     if not Local then return end
 
     local HWID = RbxAnalyticsService:GetClientId()
-    local CheckBlacklisted = false
+    local Username = Local.Name
 
     for _, hwid in ipairs(BlacklistedHWIDs) do
         if HWID == hwid then
-            CheckBlacklisted = true
-            break
+            Local:Kick("You have been blacklisted by SentinelGuard.")
+            return
         end
     end
 
-    if CheckBlacklisted then
-        Local:Kick("Your HWID has been blacklisted by SentinelGuard.")
-    else
-        print("Allowed")
+    for _, name in ipairs(BlacklistedUsernames) do
+        if Username == name then
+            Local:Kick("You have been blacklisted by SentinelGuard.")
+            return
+        end
     end
+
+    print("Allowed")
 end
 
 Check()
