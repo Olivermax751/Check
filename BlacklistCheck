@@ -1,3 +1,4 @@
+--[[
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/noahsce5/TriadWare/refs/heads/main/Security'), true))()
 
 local Players = game:GetService("Players")
@@ -38,3 +39,4 @@ while true do
     Check()
     wait(5)
 end
+--]]
