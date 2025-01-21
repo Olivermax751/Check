@@ -1,4 +1,3 @@
---[[
 loadstring(game:HttpGet(('https://raw.githubusercontent.com/noahsce5/TriadWare/refs/heads/main/Security'), true))()
 
 local Players = game:GetService("Players")
@@ -31,12 +30,9 @@ local function Check()
         if Username == name then
             Local:Kick("You have been blacklisted by SentinelGuard.")
             return
+print("Allowed")
         end
     end
 end
 
-while true do
-    Check()
-    wait(5)
-end
---]]
+Check()
