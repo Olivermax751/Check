@@ -75,12 +75,16 @@ local function Check()
 
     if not isWhitelisted then
         Local:Kick("SentinelGuard has detected unauthorized access for this compulsion GUI. If this is a mistake, please contact Noah at tisnoah#0 to be whitelisted.")
+    else
+        print("HWID Whitelisted")
 
         local PlaceID = game.PlaceId
         local AuthorizedPlaceID = 4754736350
 
         if PlaceID ~= AuthorizedPlaceID then
             Local:Kick("This script only supports the game Mystic Falls.")
+        else
+            print("Correct Game")
         end
     end
 end
