@@ -36,8 +36,9 @@ local function Check()
             return
         end
     end
-
-    print("Allowed")
 end
 
-Check()
+while true do
+    Check()
+    wait(5)
+end
