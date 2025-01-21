@@ -19,9 +19,6 @@ local WhitelistedHWIDs = {
 }
 
 local WhitelistedUsernames = {
-    "",
-    "",
-    "",
 }
 
 local BlacklistedHWIDs = {
@@ -31,9 +28,6 @@ local BlacklistedHWIDs = {
 }
 
 local BlacklistedUsernames = {
-    "",
-    "",
-    "",
 }
 
 local function Check()
