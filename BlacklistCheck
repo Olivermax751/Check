@@ -11,9 +11,6 @@ local BlacklistedHWIDs = {
 }
 
 local BlacklistedUsernames = {
-    "",
-    "",
-    "",
 }
 
 local function Check()
