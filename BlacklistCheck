@@ -25,14 +25,11 @@ local function Check()
             return
         end
     end
-
     for _, name in ipairs(BlacklistedUsernames) do
         if Username == name then
             Local:Kick("You have been blacklisted by SentinelGuard.")
             return
-print("Allowed")
         end
     end
 end
-
 Check()
