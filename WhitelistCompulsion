@@ -53,7 +53,7 @@ local function Check()
     end
 
     if isBlacklisted then
-        Local:Kick("SentinelGuard has blacklisted your HWID.")
+        Local:Kick("SentinelGuard has blocked your HWID. - BLACKLISTED")
         return
     end
 
