@@ -18,8 +18,7 @@ local WhitelistedHWIDs = {
     "B2140ECD-09FD-456B-B940-161B2287E900",
 }
 
-local WhitelistedUsernames = {
-}
+local WhitelistedUsernames = {}
 
 local BlacklistedHWIDs = {
     "BAE1A8FB-6F7D-430A-BEB8-501B3DFD7D62",
@@ -27,8 +26,7 @@ local BlacklistedHWIDs = {
     "91A51117-1F34-4E0C-92C2-2AC2593781FA",
 }
 
-local BlacklistedUsernames = {
-}
+local BlacklistedUsernames = {}
 
 local function Check()
     local Local = Players.LocalPlayer
@@ -55,7 +53,7 @@ local function Check()
     end
 
     if isBlacklisted then
-        Local:Kick("You have been blacklisted by SentinelGuard. If you have any questions contact tisnoah on Discord.")
+        Local:Kick("SentinelGuard has blacklisted your HWID.")
         return
     end
 
@@ -75,18 +73,18 @@ local function Check()
 
     if not isWhitelisted then
         Local:Kick("SentinelGuard has detected unauthorized access for this compulsion GUI. If this is a mistake, please contact Noah at tisnoah#0 to be whitelisted.")
-    else
-        print("HWID Whitelisted")
+        return
+    end
 
-        local PlaceID = game.PlaceId
-        local AuthorizedPlaceID = 4754736350
+    local PlaceID = game.PlaceId
+    local APlaceID = 4754736350
 
-        if PlaceID ~= AuthorizedPlaceID then
-            Local:Kick("This script only supports the game Mystic Falls.")
-        else
-            print("Correct Game")
-        end
+    if PlaceID ~= APlaceID then
+        Local:Kick("This script only supports the game Mystic Falls.")
     end
 end
 
-Check()
+while true do
+    Check()
+    task.wait(3)
+end
