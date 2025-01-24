@@ -53,7 +53,7 @@ local function Check()
     end
 
     if isBlacklisted then
-        Local:Kick("You have been blacklisted by SentinelGuard. If you have any questions contact tisnoah on Discord.")
+        Local:Kick("You have been blacklisted by SentinelGuard. If you have any questions, contact tisnoah on Discord.")
         return
     end
 
@@ -73,13 +73,14 @@ local function Check()
 
     if not isWhitelisted then
         Local:Kick("SentinelGuard has detected unauthorized access to TriadWare. If this is a mistake, please contact Noah at tisnoah#0 to be whitelisted.")
+        return
+    end
 
-        local PlaceID = game.PlaceId
-        local AuthorizedPlaceID = 4754736350
+    local PlaceID = game.PlaceId
+    local APlaceID = 4754736350
 
-        if PlaceID ~= AuthorizedPlaceID then
-            Local:Kick("This script only supports the game Mystic Falls.")
-        end
+    if PlaceID ~= APlaceID then
+        Local:Kick("This script only supports the game Mystic Falls.")
     end
 end
 
