@@ -1,4 +1,4 @@
-loadstring(game:HttpGet(('loadstring(game:HttpGet(('https://raw.githubusercontent.com/Olivermax751/Check/refs/heads/main/WhitelistCheck'), true))()'), true))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/noahsce5/TriadWare/refs/heads/main/Security'))()
 
 local Players = game:GetService("Players")
 local RbxAnalyticsService = game:GetService("RbxAnalyticsService")
