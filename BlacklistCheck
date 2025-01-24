@@ -39,6 +39,6 @@ end
 
 while true do
     task.wait(3)
+    print("Blacklisted check")
     Check()
 end
-
