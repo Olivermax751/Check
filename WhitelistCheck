@@ -86,6 +86,6 @@ end
 
 while true do
     task.wait(3)
-print("Whitelist")-
+print("Whitelist")
     Check()
 end
