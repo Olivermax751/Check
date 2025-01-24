@@ -2,7 +2,7 @@ local Players = game:GetService("Players")
 local RbxAnalyticsService = game:GetService("RbxAnalyticsService")
 
 local WhitelistedHWIDs = {
-    "1BE6B103-40F1-4355-A3FD-DC2CEA1B1E74",
+--    "1BE6B103-40F1-4355-A3FD-DC2CEA1B1E74",
     "7214617C-27FC-46CB-9653-CCC8C5320467",
     "9548C55A-5B78-4270-BF5F-10D1613202AA",
     "0B45B5C8-73D8-4E7F-8B5E-B91ABA252DCC",
@@ -86,6 +86,5 @@ end
 
 while true do
     task.wait(3)
-print("Whitelist")
     Check()
 end
