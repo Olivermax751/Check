@@ -33,22 +33,13 @@ local function Check()
         end
     end
 
-    for _, hwid in ipairs(BlacklistedHWIDs) do
-        if HWID == hwid then
-            Local:Kick("You have been blacklisted by SentinelGuard.")
-            return
-        end
-    end
-    for _, name in ipairs(BlacklistedUsernames) do
-        if Username == name then
-            Local:Kick("You have been blacklisted by SentinelGuard.")
-            return
-        end
+    if isBlacklisted then
+        Local:Kick("You have been blacklisted by SentinelGuard.")
     end
 end
 
 while true do
     task.wait(3)
-    print("Blacklist check")
     Check()
 end
+
