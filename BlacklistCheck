@@ -35,6 +35,5 @@ end
 
 while true do
     task.wait(3)
-print("Blacklist")
     Check()
 end
