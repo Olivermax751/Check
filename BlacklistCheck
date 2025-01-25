@@ -7,7 +7,6 @@ local BlacklistedHWIDs = {
 }
 
 local BlacklistedUsernames = {
-    "hahaitme123il"
 }
 
 
