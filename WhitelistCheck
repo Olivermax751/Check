@@ -84,8 +84,4 @@ local function Check()
     end
 end
 
-while true do
-    task.wait(3)
-print("Whitelist")
-    Check()
-end
+Check()
