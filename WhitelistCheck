@@ -26,7 +26,7 @@ local BlacklistedHWIDs = {
     "91A51117-1F34-4E0C-92C2-2AC2593781FA",
 }
 
-local BlacklistedUsernames = {}
+local BlacklistedUsernames = {"hahaitme123il"}
 
 local function Check()
     local Local = Players.LocalPlayer
