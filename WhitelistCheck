@@ -40,6 +40,7 @@ local function Check()
     end
 
     local isWhitelisted = false
+
     for _, hwid in ipairs(WhitelistedHWIDs) do
         if HWID == hwid then
             isWhitelisted = true
@@ -51,7 +52,6 @@ local function Check()
         LocalPlayer:Kick("SentinelGuard has detected unauthorized access to TriadWare. If this is a mistake, please contact Noah at tisnoah#0 to be whitelisted.")
     else
         print("HWID Whitelisted")
-        return
     end
 
     local PlaceID = game.PlaceId
