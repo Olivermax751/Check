@@ -1,7 +1,7 @@
 local Players = game:GetService("Players")
 local RbxAnalyticsService = game:GetService("RbxAnalyticsService")
 
-local WhitelistedHWIDs = {
+local Whitelisted = {
     "1BE6B103-40F1-4355-A3FD-DC2CEA1B1E74",
     "7214617C-27FC-46CB-9653-CCC8C5320467",
     "9548C55A-5B78-4270-BF5F-10D1613202AA",
@@ -16,6 +16,12 @@ local WhitelistedHWIDs = {
     "B3BB16F3-0262-4070-9AF2-1F700A834377",
     "831107C8-8B2D-4F27-A176-70BDA262901B",
     "B2140ECD-09FD-456B-B940-161B2287E900",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
 }
 
 local BlacklistedHWIDs = {
@@ -25,39 +31,45 @@ local BlacklistedHWIDs = {
 }
 
 local function Check()
-    local LocalPlayer = Players.LocalPlayer
-    if not LocalPlayer then
-        return
-    end
+    local Local = Players.LocalPlayer
+    if not Local then return end
 
     local HWID = RbxAnalyticsService:GetClientId()
-    local Username = LocalPlayer.Name
+    local CheckAuthorization = false
+    local CheckBlacklisted = false
 
     for _, hwid in ipairs(BlacklistedHWIDs) do
         if HWID == hwid then
-            LocalPlayer:Kick("SentinelGuard has blocked your HWID. - BLACKLISTED")
-            return
-        end
-    end
-
-    local isWhitelisted = false
-    for _, hwid in ipairs(WhitelistedHWIDs) do
-        if HWID == hwid then
-            isWhitelisted = true
+            CheckBlacklisted = true
             break
         end
     end
 
-    if not isWhitelisted then
-        LocalPlayer:Kick("SentinelGuard has detected unauthorized access to TriadWare. If this is a mistake, please contact Noah at tisnoah#0 to be whitelisted.")
+    if CheckBlacklisted then
+        Local:Kick("Your HWID has been blacklisted by SentinelGuard. If you have any questions contact tisnoah on Discord.")
         return
     end
 
-    local PlaceID = game.PlaceId
-    local APlaceID = 4754736350
+    for _, hwid in ipairs(Whitelisted) do
+        if HWID == hwid then
+            CheckAuthorization = true
+            break
+        end
+    end
 
-    if PlaceID ~= APlaceID then
-        LocalPlayer:Kick("This script only supports the game Mystic Falls.")
+    if not CheckAuthorization then
+        Local:Kick("SentinelGuard has detected unauthorized access to TriadWare. If this is a mistake, please contact Noah at tisnoah#0 to be whitelisted.")
+    else
+        print("HWID Whitelisted")
+
+        local PlaceID = game.PlaceId
+        local APlaceID = 4754736350
+
+        if PlaceID ~= APlaceID then
+            Local:Kick("This specific script only supports the game Mystic Falls.")
+        else
+            print("Correct Game")
+        end
     end
 end
 
