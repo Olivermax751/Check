@@ -3,12 +3,12 @@ local RbxAnalyticsService = game:GetService("RbxAnalyticsService")
 
 local BlacklistedHWIDs = {
     "BAE1A8FB-6F7D-430A-BEB8-501B3DFD7D62",
-    "1837E531-57DB-4C21-9841-812DEB0BDFB3",
-    "91A51117-1F34-4E0C-92C2-2AC2593781FA",
+    "1837E531-57DB-4C21-9841-812DEB0BDFB3"
 }
 
 local BlacklistedUsernames = {
 }
+
 
 local function Check()
     local Local = Players.LocalPlayer
@@ -16,18 +16,24 @@ local function Check()
 
     local HWID = RbxAnalyticsService:GetClientId()
     local Username = Local.Name
+    local CheckBlacklisted = false
 
     for _, hwid in ipairs(BlacklistedHWIDs) do
         if HWID == hwid then
-            Local:Kick("You have been blacklisted by SentinelGuard.")
-            return
+            CheckBlacklisted = true
+            break
         end
     end
+
     for _, name in ipairs(BlacklistedUsernames) do
         if Username == name then
-            Local:Kick("You have been blacklisted by SentinelGuard.")
-            return
+            CheckBlacklisted = true
+            break
         end
+    end
+
+    if CheckBlacklisted then
+        Local:Kick("Your HWID has been blacklisted by SentinelGuard.")
     end
 end
 
