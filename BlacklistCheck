@@ -17,29 +17,22 @@ local function Check()
     local HWID = RbxAnalyticsService:GetClientId()
     local Username = Local.Name
 
-    local isBlacklisted = false
-
     for _, hwid in ipairs(BlacklistedHWIDs) do
         if HWID == hwid then
-            isBlacklisted = true
-            break
+            Local:Kick("You have been blacklisted by SentinelGuard.")
+            return
         end
     end
 
     for _, name in ipairs(BlacklistedUsernames) do
         if Username == name then
-            isBlacklisted = true
-            break
+            Local:Kick("You have been blacklisted by SentinelGuard.")
+            return
         end
-    end
-
-    if isBlacklisted then
-        Local:Kick("You have been blacklisted by SentinelGuard.")
     end
 end
 
-while true do
-    task.wait(3)
+while task.wait(3) do
 print("Blacklist")
     Check()
 end
