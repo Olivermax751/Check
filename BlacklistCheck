@@ -9,7 +9,6 @@ local BlacklistedHWIDs = {
 local BlacklistedUsernames = {
 }
 
-
 local function Check()
     local Local = Players.LocalPlayer
     if not Local then return end
@@ -38,6 +37,6 @@ local function Check()
 end
 
 while true do
-task.wait(3)
-Check()
+    task.wait(3)
+    Check()
 end
