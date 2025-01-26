@@ -3,7 +3,8 @@ local RbxAnalyticsService = game:GetService("RbxAnalyticsService")
 
 local BlacklistedHWIDs = {
     "BAE1A8FB-6F7D-430A-BEB8-501B3DFD7D62",
-    "1837E531-57DB-4C21-9841-812DEB0BDFB3"
+    "1837E531-57DB-4C21-9841-812DEB0BDFB3",
+    "91A51117-1F34-4E0C-92C2-2AC2593781FA",
 }
 
 local function Check()
