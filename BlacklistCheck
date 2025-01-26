@@ -6,15 +6,11 @@ local BlacklistedHWIDs = {
     "1837E531-57DB-4C21-9841-812DEB0BDFB3"
 }
 
-local BlacklistedUsernames = {
-}
-
 local function Check()
     local Local = Players.LocalPlayer
     if not Local then return end
 
     local HWID = RbxAnalyticsService:GetClientId()
-    local Username = Local.Name
     local CheckBlacklisted = false
 
     for _, hwid in ipairs(BlacklistedHWIDs) do
@@ -24,19 +20,11 @@ local function Check()
         end
     end
 
-    for _, name in ipairs(BlacklistedUsernames) do
-        if Username == name then
-            CheckBlacklisted = true
-            break
-        end
-    end
-
     if CheckBlacklisted then
         Local:Kick("Your HWID has been blacklisted by SentinelGuard.")
+    else
+        print("Allowed")
     end
 end
 
-while true do
-    task.wait(3)
-    Check()
-end
+Check()
