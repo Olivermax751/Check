@@ -57,10 +57,15 @@ local function Check()
         Local:Kick("SentinelGuard has detected unauthorized access for this compulsion GUI. If this is a mistake, please contact Noah at tisnoah#0 to be whitelisted.")
     else
         local PlaceID = game.PlaceId
-        local APlaceID = 4754736350
+        local AllowedPlaceIDs = {
+            [4754736350] = true,
+            [96983176760812] = true,
+        }
 
-        if PlaceID ~= APlaceID then
+        if not AllowedPlaceIDs[PlaceID] then
             Local:Kick("This specific script only supports the game Mystic Falls.")
+        else
+            print("Correct Game")
         end
     end
 end
