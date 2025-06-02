@@ -18,10 +18,6 @@ local Whitelisted = {
     "B2140ECD-09FD-456B-B940-161B2287E900",
     "2E866E31-E212-4CA9-A637-2CD45E620B29",
     "9277E58B-C2FD-45A6-A59B-EF108F10C6B9",
-    "",
-    "",
-    "",
-    "",
 }
 
 local BlacklistedHWIDs = {
@@ -63,10 +59,13 @@ local function Check()
         print("HWID Whitelisted")
 
         local PlaceID = game.PlaceId
-        local APlaceID = 4754736350
+        local AllowedPlaceIDs = {
+            [4754736350] = true,
+            [96983176760812] = true,
+        }
 
-        if PlaceID ~= APlaceID then
-            Local:Kick("This specific script only supports the game Mystic Falls.")
+        if not AllowedPlaceIDs[PlaceID] then
+            Local:Kick("This specific script only supports authorized games.")
         else
             print("Correct Game")
         end
