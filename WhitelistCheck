@@ -65,7 +65,7 @@ local function Check()
         }
 
         if not AllowedPlaceIDs[PlaceID] then
-            Local:Kick("This specific script only supports authorized games.")
+            Local:Kick("This specific script only supports the game Mystic Falls.")
         else
             print("Correct Game")
         end
